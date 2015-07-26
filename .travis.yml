@@ -1,0 +1,15 @@
+---
+language: python
+python: "2.7"
+
+evn:
+  - ANSIBLE_VERSION=1.9.2
+
+before_install:
+  - apt-get update -qq
+
+install:
+  - pip install ansible=$ANSIBLE_VERSION
+
+script:
+  - "which ansible"

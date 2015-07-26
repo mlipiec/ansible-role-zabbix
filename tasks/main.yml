@@ -1,2 +1,11 @@
 ---
-# tasks file for zabbix
+- name: Install Zabbix GPG key
+  apt_key: url='http://repo.zabbix.com/zabbix-official-repo.key' state=present
+
+- name: Setup official Zabbix Debian repository
+  apt_repository:
+    repo='deb http://repo.zabbix.com/zabbix/{{ zabbix_version }}/debian {{ ansible_distribution_release }} main'
+    state=present
+
+- name: Install zabbix-agent package
+  apt: name=zabbix-agent update_cache=yes state=present
