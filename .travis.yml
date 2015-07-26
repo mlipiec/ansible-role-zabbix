@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - pip install ansible=$ANSIBLE_VERSION
+  - pip install ansible==$ANSIBLE_VERSION
 
 script:
   - "which ansible"

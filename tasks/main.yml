@@ -9,5 +9,3 @@
 
 - name: Install zabbix-agent package
   apt: name=zabbix-agent update_cache=yes state=present
-
-# dodajemy testowy komentarz
