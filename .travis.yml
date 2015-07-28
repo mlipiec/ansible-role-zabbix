@@ -10,7 +10,14 @@ before_install:
 
 install:
   - pip install ansible==$ANSIBLE_VERSION
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
 script:
   - "ansible --version"
-  
+  - "ansible-playbook -i tests/hosts tests/test.yml --syntax-check"
+  - "ansible-playbook -i tests/hosts tests/test.yml --connection=local --sudo"
+  - >
+    ansible-playbook -i tests/hosts tests/test.yml --connection=local --sudo
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
