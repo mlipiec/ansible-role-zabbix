@@ -1,0 +1,4 @@
+---
+zabbix_agentd_pid_file: '/var/run/zabbix/zabbix_agentd.pid'
+zabbix_agentd_log_file: '/var/log/zabbix/zabbix_agentd.log'
+zabbix_agentd_include_path: '/etc/zabbix/zabbix_agentd.d/'

@@ -1,2 +1,3 @@
 ---
-# handlers file for zabbix
+- name: restart zabbix agent daemon
+  service: name=zabbix-agent state=restarted

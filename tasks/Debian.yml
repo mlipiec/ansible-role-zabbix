@@ -1,0 +1,5 @@
+---
+- name: Setup official Zabbix Debian repository
+  apt_repository: >
+    repo='deb http://repo.zabbix.com/zabbix/{{ zabbix_packages_version }}/debian {{ ansible_distribution_release }} main'
+    state=present
